@@ -11,15 +11,16 @@ const agent = createReactAgent({
 })
 
 const main = async () => {
-  const result = await agent.invoke(
-    {
-      messages: [
-        {role: "system", content: "Respond in italian."},
-        { role: "user", content: "How many times does the letter 'r' appear in the word 'strawberry'?" },
-      ],
-    }
+  const result = await agent.invoke({
+    messages: [
+      {
+        role: "user",
+        content: "How many times does the letter 'r' appear in the word 'strawberry'?"
+      },
+    ],
+  })
 
-    )
+  console.log(result.messages)
   console.log(result.messages.slice(-1)[0].content)
 }
 
